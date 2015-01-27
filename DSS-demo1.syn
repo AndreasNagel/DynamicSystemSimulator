@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE scheme SYSTEM "scheme.dtd">
+<scheme package="DynSysSim" superclass="Simulator_0">
+<object name="MultiSeriesGraph_0" type="MultiSeriesGraph" static="true">
+<properties x="237" y="33" xsize="1.0" ysize="1.0" strict="false"/>
+<fields>
+<field name="domainName" type="String"/>
+<field name="seriesNames" type="String[]" value="t%%"/>
+<field name="lineThickness" type="float"/>
+<field name="axisAlwaysIncludeZero" type="boolean"/>
+<field name="showSeparateAxis" type="boolean"/>
+<field name="autoSort" type="boolean"/>
+<field name="allowDuplicates" type="boolean"/>
+</fields>
+</object>
+<object name="Clock_0" type="Clock" static="false">
+<properties x="245" y="168" xsize="1.0" ysize="1.0" strict="false"/>
+<fields/>
+</object>
+<object name="Integrator_0" type="Integrator" static="false">
+<properties x="70" y="43" xsize="1.0" ysize="1.0" strict="false"/>
+<fields>
+<field name="initstate" type="double" value="3"/>
+</fields>
+</object>
+<object name="Simulator_0" type="Simulator" static="false">
+<properties x="37" y="198" xsize="1.0" ysize="1.0" strict="false"/>
+<fields>
+<field name="time" type="int" value="20"/>
+<field name="timeStep" type="double" value="1"/>
+<field name="T" type="double"/>
+<field name="repaintImmediately" type="boolean" value="true"/>
+<field name="drawingDelay" type="long" value="50"/>
+<field name="debug" type="boolean" value="false"/>
+</fields>
+</object>
+<connection obj1="Clock_0" port1="out" obj2="MultiSeriesGraph_0" port2="x" strict="false">
+<breakpoints/>
+</connection>
+<connection obj1="Integrator_0" port1="out" obj2="MultiSeriesGraph_0" port2="ys" strict="false">
+<breakpoints/>
+</connection>
+<connection obj1="Clock_0" port1="out" obj2="Integrator_0" port2="in" strict="false">
+<breakpoints>
+<point x="38" y="173"/>
+<point x="38" y="82"/>
+</breakpoints>
+</connection>
+</scheme>
