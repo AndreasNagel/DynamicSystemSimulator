@@ -1,2 +1,24 @@
 # DynamicSystemSimulator
 Package that facilitates simulation of dynamic processes
+
+Usage
+------
+
+Load the package (Package>Load) from DynSysSim.xml.
+
+Open a demo scheme (File>Load Scheme) DSS-demo1.syn
+Run the Simulation (Scheme>Run) - You'll see what happens when you integrate time.
+
+Load another demo Simulation DSS-demo2_predator-prey.syn
+Run the simulation. Try to adjust the simulation parameters so that the population of preys and predators would not extinguish - life is not easy! :)
+
+Package description
+--------------------
+
+Every scheme should have one Simulator - a Simulation Engine that possess the simulation properties like simulation time and time step (or a number of simulation steps in a time unit), and acts as a supervisor during the simulation execution. The Simulator must be set as super from the Properties window (make double-click or right-click on the image on the scheme to acces the menu).
+
+You can set the Graph object to display several inputs - the number is unlimited.
+
+To execute a simulation choose Scheme>Run.
+
+Have Fun! :)
