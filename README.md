@@ -4,13 +4,13 @@ A CoCoViLa Package that facilitates simulation of dynamic processes.
 Usage
 ------
 
-Load the package (Package>Load) from DynSysSim.xml.
+Load the package (Package>Load) DynSysSim.xml.
 
 Open a demo scheme (File>Load Scheme) DSS-demo1.syn.
 Run the Simulation (Scheme>Run) -- You'll see what happens when you integrate time.
 
-Load another demo Simulation DSS-demo2_predator-prey.syn.
-Run the simulation. Try to adjust the simulation parameters so that the population of preys and predators would not extinguish - life is not a simple thing! :)
+Load another demo simulation DSS-demo2_predator-prey.syn.
+Run the simulation. Try to adjust the simulation parameters (adders' coefficients) so that the population of preys and predators would not extinguish - life is not a simple thing! :)
 
 Package description
 --------------------
