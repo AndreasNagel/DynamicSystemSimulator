@@ -42,7 +42,8 @@ class MultiSeriesGraph {
         paintAll, repaintImmediately -> done {drawAll};
     }@*/
 
-    double prevx = 0, firstround = -1;
+    double prevx = 0, countDraw = 0;
+    double prevy;
     private JFreeChart chart;
     private ChartFrame frame;
     private XYPlot plot;
@@ -128,13 +129,39 @@ class MultiSeriesGraph {
 
     public void draw( final double x, final double[] ys,
             final boolean repaintImmediately ) throws Exception {
-
+        countDraw++;
+        System.out.println("Countdraw: " + countDraw);
         for ( int i = 0; i < ys.length; i++ ) {
-                    series.get( i ).add(x, ys[i], repaintImmediately );
+            System.out.println("x, y, prevx, prevy: " + x + "; " + ys[i] + "; " + prevx + ";  "+ prevy);
+            if(false)//countDraw == 2)
+            {
+System.out.println("Ei joonista asju");
+            }
+            else if(false)//countDraw == 1)
+            {
+                series.get( i ).add(prevx, ys[i], repaintImmediately );
+            }
+            else
+            {
+                if(ys[i] == x && prevx == prevy)
+                {
+System.out.println("Joonistan kella");
+                    series.get( i ).add(prevx, prevx, repaintImmediately );
+                }
+                else
+                {
+                        series.get( i ).add(prevx, ys[i], repaintImmediately );
+                        System.out.println("Joonistan asju");
+                }                    
+            }
+            if(ys[i] == prevy)
+            {
+                prevy = ys[i];
+            }
                     //System.out.println("Joonistan asju " + prevx);
 
         }
-        //prevx = x;
+        prevx = x;
     }
 
     public void setSeriesName( String domain, String[] names, boolean showSeparateAxis ) {
