@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE scheme SYSTEM "scheme.dtd">
+<scheme package="DynSysSim" superclass="Simulator_0">
+<object name="Adder_0" type="Adder" static="false">
+<properties x="131" y="178" xsize="1.0" ysize="1.0" strict="false"/>
+<fields>
+<field name="k1" type="double" value="0.03"/>
+<field name="k2" type="double" value="-0.0009"/>
+<field name="in1" type="double"/>
+<field name="in2" type="double"/>
+</fields>
+</object>
+<object name="Adder_1" type="Adder" static="false">
+<properties x="470" y="144" xsize="1.0" ysize="1.0" strict="false"/>
+<fields>
+<field name="k1" type="double" value="-0.2150"/>
+<field name="k2" type="double" value="0.0018"/>
+<field name="in1" type="double"/>
+<field name="in2" type="double"/>
+</fields>
+</object>
+<object name="Mult_0" type="Multiplier" static="false">
+<properties x="361" y="161" xsize="1.0" ysize="1.0" strict="false"/>
+<fields>
+<field name="in1" type="double"/>
+<field name="in2" type="double"/>
+</fields>
+</object>
+<object name="Mult_1" type="Multiplier" static="false">
+<properties x="29" y="195" xsize="1.0" ysize="1.0" strict="false"/>
+<fields>
+<field name="in1" type="double"/>
+<field name="in2" type="double"/>
+</fields>
+</object>
+<object name="MultiSeriesGraph_0" type="MultiSeriesGraph" static="true">
+<properties x="748" y="27" xsize="1.0" ysize="1.0" strict="false"/>
+<fields>
+<field name="domainName" type="String"/>
+<field name="seriesNames" type="String[]" value="rabbits%%wolfs%%"/>
+<field name="lineThickness" type="float"/>
+<field name="axisAlwaysIncludeZero" type="boolean"/>
+<field name="showSeparateAxis" type="boolean"/>
+<field name="autoSort" type="boolean"/>
+<field name="allowDuplicates" type="boolean"/>
+</fields>
+</object>
+<object name="Simulator_0" type="Simulator" static="false">
+<properties x="24" y="35" xsize="1.0" ysize="1.0" strict="false"/>
+<fields>
+<field name="time" type="int" value="5000"/>
+<field name="timeStep" type="double"/>
+<field name="T" type="double" value="1"/>
+<field name="repaintImmediately" type="boolean" value="true"/>
+<field name="drawingDelay" type="long" value="10"/>
+<field name="debug" type="boolean" value="false"/>
+</fields>
+</object>
+<object name="IntegratorLoop_8" type="IntegratorLoop" static="false">
+<properties x="575" y="148" xsize="1.0" ysize="1.0" strict="false"/>
+<fields>
+<field name="init" type="double" value="40"/>
+</fields>
+</object>
+<object name="IntegratorLoop_9" type="IntegratorLoop" static="false">
+<properties x="245" y="174" xsize="1.0" ysize="1.0" strict="false"/>
+<fields>
+<field name="init" type="double" value="120"/>
+</fields>
+</object>
+<object name="tick_Counter_7" type="tick_Counter" static="false">
+<properties x="757" y="163" xsize="1.0" ysize="1.0" strict="false"/>
+<fields>
+<field name="init" type="double" value="0"/>
+</fields>
+</object>
+<connection obj1="Mult_0" port1="out" obj2="Adder_1" port2="in2" strict="false">
+<breakpoints/>
+</connection>
+<connection obj1="Mult_1" port1="out" obj2="Adder_0" port2="in2" strict="false">
+<breakpoints/>
+</connection>
+<connection obj1="Adder_1" port1="out" obj2="IntegratorLoop_8" port2="in" strict="false">
+<breakpoints/>
+</connection>
+<connection obj1="IntegratorLoop_8" port1="out" obj2="Mult_1" port2="in2" strict="false">
+<breakpoints>
+<point x="714" y="317"/>
+<point x="26" y="310"/>
+<point x="26" y="251"/>
+</breakpoints>
+</connection>
+<connection obj1="IntegratorLoop_8" port1="out" obj2="Mult_0" port2="in1" strict="false">
+<breakpoints>
+<point x="659" y="279"/>
+<point x="352" y="260"/>
+<point x="350" y="181"/>
+</breakpoints>
+</connection>
+<connection obj1="IntegratorLoop_8" port1="out" obj2="Adder_1" port2="in1" strict="false">
+<breakpoints>
+<point x="670" y="151"/>
+<point x="488" y="103"/>
+<point x="460" y="169"/>
+<point x="474" y="171"/>
+</breakpoints>
+</connection>
+<connection obj1="Adder_0" port1="out" obj2="IntegratorLoop_9" port2="in" strict="false">
+<breakpoints/>
+</connection>
+<connection obj1="IntegratorLoop_9" port1="out" obj2="Mult_0" port2="in2" strict="false">
+<breakpoints/>
+</connection>
+<connection obj1="IntegratorLoop_9" port1="out" obj2="MultiSeriesGraph_0" port2="ys" strict="false">
+<breakpoints>
+<point x="460" y="61"/>
+</breakpoints>
+</connection>
+<connection obj1="IntegratorLoop_9" port1="out" obj2="Adder_0" port2="in1" strict="false">
+<breakpoints>
+<point x="355" y="103"/>
+<point x="120" y="141"/>
+<point x="123" y="202"/>
+</breakpoints>
+</connection>
+<connection obj1="IntegratorLoop_9" port1="out" obj2="Mult_1" port2="in1" strict="false">
+<breakpoints>
+<point x="364" y="132"/>
+<point x="62" y="143"/>
+<point x="16" y="192"/>
+</breakpoints>
+</connection>
+<connection obj1="tick_Counter_7" port1="out" obj2="MultiSeriesGraph_0" port2="x" strict="false">
+<breakpoints/>
+</connection>
+<connection obj1="IntegratorLoop_8" port1="out" obj2="MultiSeriesGraph_0" port2="ys" strict="false">
+<breakpoints/>
+</connection>
+</scheme>

@@ -9,258 +9,230 @@
 		NB! One Simulator block must be present and set as super in order to make a scheme work.
 		Simulation time and simulation step can be modified through the Properties of the block.
 	</description>
-	<class type="class">
-		<name>Clock</name>
-		<description>- a block that counts the simulation time</description>
-		<icon>icons_DSS/clock.gif</icon>
-		<graphics>
-			<bounds height="70" width="70" x="0" y="0"/>
-			<oval colour="0" filled="false" fixed="false" height="50"
-				linetype="0" stroke="1" transparency="255" width="50"
-				x="10" y="10"/>
-			<line colour="0" x1="35" x2="28" y1="35" y2="30"/>
-			<line colour="0" x1="35" x2="47" y1="35" y2="18"/>
-		</graphics>
-		<ports>
-			<port name="out" portConnection="" strict="false"
-				type="double" x="35" y="5"/>
-		</ports>
-	</class>
-	<class type="class">
-		<name>Adder</name>
-		<description>- a block that multiplies it's inputs with given constants and sums the resulting values</description>
-		<icon>icons_DSS/adder.gif</icon>
-		<graphics>
-			<bounds x="0" y="0" width="85" height="80" />
-			<rect x="5" y="2" width="75" height="75" colour="-16777216"
-				filled="false" fixed="false" stroke="1" linetype="0"
-				transparency="255" />
-			<line x1="60" y1="18" x2="60" y2="23" colour="-16777216"
-				fixed="false" stroke="2" linetype="0" transparency="255" />
-			<line x1="60" y1="18" x2="22" y2="18" colour="-16777216"
-				fixed="false" stroke="2" linetype="0" transparency="255" />
-			<line x1="22" y1="18" x2="40" y2="39" colour="-16777216"
-				fixed="false" stroke="2" linetype="0" transparency="255" />
-			<line x1="40" y1="39" x2="23" y2="62" colour="-16777216"
-				fixed="false" stroke="2" linetype="0" transparency="255" />
-			<line x1="23" y1="62" x2="60" y2="62" colour="-16777216"
-				fixed="false" stroke="2" linetype="0" transparency="255" />
-			<line x1="60" y1="62" x2="60" y2="56" colour="-16777216"
-				fixed="false" stroke="2" linetype="0" transparency="255" />
-		</graphics>
-		<ports>
-			<port name="in1" type="double" x="5" y="23"
-				portConnection="" strict="false" />
-			<port name="in2" type="double" x="5" y="56"
-				portConnection="" strict="false" />
-			<port name="k1" type="double" x="20" y="2"
-				portConnection="" strict="false" />
-			<port name="k2" type="double" x="20" y="77"
-				portConnection="" strict="false" />
-			<port name="out" type="double" x="80" y="39"
-				portConnection="" strict="false" />
-		</ports>
-		<fields>
-			<field description="multiplier for the input 1 (in1)"
-				name="k1" type="double">
-				<known>
-					<graphics>
-						<text string="*self" colour="69322" x="25" y="0" fontname="Arial" fontstyle="1"  fontsize="12" />
-					</graphics>
-				</known>
-			</field>
-			<field description="multiplier for the input 2 (in2)"
-				name="k2" type="double">
-			 <known>
-					<graphics>
-						<text string="*self" colour="69322" x="25" y="90" fontname="Arial" fontstyle="1"  fontsize="12" />
-					</graphics>
-				</known>
-			</field>
-			<field name="in1" type="double">
-				<known>
-					<graphics>
-						<text string="*self" colour="69322" x="-20" y="15" fontname="Arial" fontstyle="1"  fontsize="12" />
-					</graphics>
-				</known>
-			</field>
-			<field name="in2" type="double">
-				<known>
-					<graphics>
-						<text string="*self" colour="69322" x="-20" y="75" fontname="Arial" fontstyle="1"  fontsize="12" />
-					</graphics>
-				</known>
-			</field>
-		</fields>
-	</class>
-	<class type="class">
-		<name>Multiplier</name>
-		<description>- a block that outputs the input values multiplied</description>
-		<icon>icons_DSS/multiplier.gif</icon>
-		<graphics>
-			<bounds x="0" y="0" width="85" height="80" />
-			<rect x="5" y="2" width="75" height="75" colour="-16777216"
-				filled="false" fixed="false" stroke="1" linetype="0"
-				transparency="255" />
-			<line x1="22" y1="19" x2="63" y2="60" colour="-16777216"
-				fixed="false" stroke="2" linetype="0" transparency="255" />
-			<line x1="22" y1="60" x2="63" y2="19" colour="-16777216"
-				fixed="false" stroke="2" linetype="0" transparency="255" />
-		</graphics>
-		<ports>
-			<port name="in1" type="double" x="5" y="23"
-				portConnection="" strict="false" />
-			<port name="in2" type="double" x="5" y="56"
-				portConnection="" strict="false" />
-			<port name="out" type="double" x="80" y="39"
-				portConnection="" strict="false" />
-		</ports>
-		<fields>
-			<field name="in1" type="double">
-				<known>
-					<graphics>
-						<text string="*self" colour="69322" x="-25" y="15" fontname="Arial" fontstyle="1"  fontsize="12" />
-					</graphics>
-				</known>
-			</field>
-			<field name="in2" type="double">
-				<known>
-					<graphics>
-						<text string="*self" colour="69322" x="-25" y="75" fontname="Arial" fontstyle="1"  fontsize="12" />
-					</graphics>
-				</known>
-			</field>
-		</fields>
-	</class>
-	<class type="class">
-		<name>Integrator</name>
-		<description>- a block that integrates the input</description>
-		<icon>icons_DSS/integrator.gif</icon>
-		<graphics>
-			<bounds x="0" y="0" width="85" height="80" />
-			<rect x="5" y="2" width="75" height="75" colour="-16777216"
-				filled="false" fixed="false" stroke="1" linetype="0"
-				transparency="255" />
-			<line x1="48" y1="22" x2="48" y2="19" colour="-16777216"
-				fixed="false" stroke="2" linetype="0" transparency="255" />
-			<line x1="48" y1="19" x2="47" y2="18" colour="-16777216"
-				fixed="false" stroke="2" linetype="0" transparency="255" />
-			<line x1="47" y1="18" x2="43" y2="18" colour="-16777216"
-				fixed="false" stroke="2" linetype="0" transparency="255" />
-			<line x1="43" y1="18" x2="42" y2="20" colour="-16777216"
-				fixed="false" stroke="2" linetype="0" transparency="255" />
-			<line x1="42" y1="20" x2="42" y2="58" colour="-16777216"
-				fixed="false" stroke="2" linetype="0" transparency="255" />
-			<line x1="42" y1="58" x2="41" y2="60" colour="-16777216"
-				fixed="false" stroke="2" linetype="0" transparency="255" />
-			<line x1="41" y1="60" x2="37" y2="60" colour="-16777216"
-				fixed="false" stroke="2" linetype="0" transparency="255" />
-			<line x1="37" y1="60" x2="36" y2="59" colour="-16777216"
-				fixed="false" stroke="2" linetype="0" transparency="255" />
-			<line x1="36" y1="59" x2="36" y2="56" colour="-16777216"
-				fixed="false" stroke="2" linetype="0" transparency="255" />
-		</graphics>
-		<ports>
-			<port name="in" type="double" x="5" y="39"
-				portConnection="" strict="false" />
-			<port name="out" type="double" x="80" y="39"
-				portConnection="" strict="false" />
-		</ports>
-		<fields>
-			<field description="initial value for the simulation - integrator needs to remember it's previous state which is absent when simuation is started"
-				name="initstate" type="double" />
-		</fields>
-	</class>
-	<class type="class">
-		<name>Inverter</name>
-		<description>- a block that negates the input values</description>
-		<icon>icons_DSS/inverter.gif</icon>
-		<graphics>
-			<bounds x="0" y="0" width="85" height="80" />
-			<rect x="5" y="2" width="75" height="75" colour="-16777216"
-				filled="false" fixed="false" stroke="1" linetype="0"
-				transparency="255" />
-			<text string="-1" colour="-16777216" x="15" y="51"
-				fontname="Courier" fontstyle="1" fontsize="40" transparency="255" />
-		</graphics>
-		<ports>
-			<port name="in" type="double" x="5" y="39"
-				portConnection="" strict="false" />
-			<port name="out" type="double" x="80" y="39"
-				portConnection="" strict="false" />
-		</ports>
-		<fields>
-		</fields>
-	</class>
-	<class static="true" type="class">
-		<name>MultiSeriesGraph</name>
-		<description>- displays the simulation results as a graph</description>
-		<icon>icons_DSS/MultiSeriesGraph.png</icon>
-		<graphics>
-			<bounds height="90" width="90" x="0" y="0"/>
-			<line colour="-16777216" fixed="false" linetype="0"
-				stroke="2" transparency="255" x1="7" x2="7" y1="13" y2="87"/>
-			<line colour="-16777216" fixed="false" linetype="0"
-				stroke="2" transparency="255" x1="7" x2="4" y1="12" y2="20"/>
-			<line colour="-16777216" fixed="false" linetype="0"
-				stroke="2" transparency="255" x1="7" x2="10" y1="12" y2="20"/>
-			<line colour="-16777216" fixed="false" linetype="0"
-				stroke="2" transparency="255" x1="1" x2="82" y1="83" y2="83"/>
-			<line colour="-16777216" fixed="false" linetype="0"
-				stroke="2" transparency="255" x1="83" x2="76" y1="83" y2="86"/>
-			<line colour="-16777216" fixed="false" linetype="0"
-				stroke="2" transparency="255" x1="83" x2="76" y1="83" y2="80"/>
-			<text colour="16777216" fontname="Arial" fontsize="13"
-				fontstyle="1" string="x" transparency="255" x="86" y="95"/>
-			<text colour="16777216" fontname="Arial" fontsize="13"
-				fontstyle="1" string="y[ ]" transparency="255" x="12" y="11"/>
-		</graphics>
-		<ports>
-			<port multi="true" name="ys" portConnection=""
-				strict="false" type="double[]" x="7" y="49"/>
-			<port name="x" portConnection="" strict="false"
-				type="double" x="43" y="83"/>
-		</ports>
-		<fields>
-			<field name="domainName" type="String"/>
-			<field name="seriesNames" type="String[]"/>
-			<field name="lineThickness" type="float"/>
-			<field name="axisAlwaysIncludeZero" type="boolean"/>
-			<field name="showSeparateAxis" type="boolean"/>
-			<field name="autoSort" type="boolean"/>
-			<field name="allowDuplicates" type="boolean"/>
-		</fields>
-	</class>
-	<class static="false" type="scheme">
-		<name>Simulator</name>
-		<description>- a simulation engine that defines the simulation parameters and supervises the simulation execution. Must be "Set As Super" in Properties.</description>
-		<icon>icons_DSS/simulator.gif</icon>
-		<graphics>
-			<bounds height="50" width="130" x="0" y="0"/>
-			<rect colour="0" filled="false" fixed="false" height="50"
-				linetype="0.0" stroke="1.0" transparency="255"
-				width="130" x="0" y="0"/>
-			<text colour="0" fixed="true" fontname="Arial" fontsize="12"
-				fontstyle="0" string="Simulation Engine" x="10" y="30"/>
-		</graphics>
-		<fields>
-			<field description="amount of time units to be processed"
-				name="time" type="int" value="200"/>
-			<field description="length of a simulation step in time units"
-				name="timeStep" type="double" value="1"/>
-			<field description="number of steps in a time unit = 1/timeStep"
-				name="T" type="double"/>
-			<field description="update graphics during the computation"
-				name="repaintImmediately" type="boolean" value="true"/>
-			<field description="dealy in ms before computing next step, works when repaintImmediately is set to true"
-				name="drawingDelay" type="long" value="50"/>
-			<field description="" name="debug" type="boolean" value="false"/>
-		</fields>
-	</class>
-	<class type="class">
-		<name>PlaceHolder</name>
-		<description/>
-		<icon>icons/placeholder.gif</icon>
-		<graphics/>
-	</class>
+<class type="class">
+	<name>Clock</name>
+	<description>- a block that counts the simulation time</description>
+	<icon>icons_DSS/clock.gif</icon>
+<graphics>
+<bounds x="0" y="0" width="70" height="70"/>
+<oval x="10" y="10" width="50" height="50" colour="-16777216" filled="false" fixed="false" stroke="1" linetype="0.0" transparency="255"/>
+<line x1="35" y1="35" x2="28" y2="30" colour="-16777216" fixed="false" stroke="1" linetype="0.0" transparency="255"/>
+<line x1="35" y1="35" x2="47" y2="18" colour="-16777216" fixed="false" stroke="1" linetype="0.0" transparency="255"/>
+</graphics>
+	<ports>
+		<port name="out" type="double" x="35" y="5" portConnection="" strict="false" />
+	</ports>
+</class>
+<class type="class">
+	<name>Adder</name>
+	<description>- a block that multiplies it's inputs with given constants and sums the resulting values</description>
+	<icon>icons_DSS/adder.gif</icon>
+<graphics>
+<bounds x="0" y="0" width="85" height="80"/>
+<rect x="5" y="2" width="75" height="75" colour="-16777216" filled="false" fixed="false" stroke="1" linetype="0.0" transparency="255"/>
+<line x1="60" y1="18" x2="60" y2="23" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+<line x1="60" y1="18" x2="22" y2="18" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+<line x1="22" y1="18" x2="40" y2="39" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+<line x1="40" y1="39" x2="23" y2="62" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+<line x1="23" y1="62" x2="60" y2="62" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+<line x1="60" y1="62" x2="60" y2="56" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+</graphics>
+	<ports>
+		<port name="in1" type="double" x="5" y="23" portConnection="" strict="false" />
+		<port name="in2" type="double" x="5" y="56" portConnection="" strict="false" />
+		<port name="k1" type="double" x="20" y="2" portConnection="" strict="false" />
+		<port name="k2" type="double" x="20" y="77" portConnection="" strict="false" />
+		<port name="out" type="double" x="80" y="39" portConnection="" strict="false" />
+	</ports>
+	<fields>
+       <field name="k1" type="double">
+        <known>
+          <graphics>
+            <text string="*self" colour="-16707894" x="25" y="0" fontname="Arial" fontstyle="1" fontsize="12" transparency="255"/>
+          </graphics>
+        </known>
+      </field>
+       <field name="k2" type="double">
+        <known>
+          <graphics>
+            <text string="*self" colour="-16707894" x="25" y="90" fontname="Arial" fontstyle="1" fontsize="12" transparency="255"/>
+          </graphics>
+        </known>
+      </field>
+       <field name="in1" type="double">
+        <known>
+          <graphics>
+            <text string="*self" colour="-16707894" x="-20" y="15" fontname="Arial" fontstyle="1" fontsize="12" transparency="255"/>
+          </graphics>
+        </known>
+      </field>
+       <field name="in2" type="double">
+        <known>
+          <graphics>
+            <text string="*self" colour="-16707894" x="-20" y="75" fontname="Arial" fontstyle="1" fontsize="12" transparency="255"/>
+          </graphics>
+        </known>
+      </field>
+	</fields>
+</class>
+<class type="class">
+	<name>Multiplier</name>
+	<description>- a block that outputs the input values multiplied</description>
+	<icon>icons_DSS/multiplier.gif</icon>
+<graphics>
+<bounds x="0" y="0" width="85" height="80"/>
+<rect x="5" y="2" width="75" height="75" colour="-16777216" filled="false" fixed="false" stroke="1" linetype="0.0" transparency="255"/>
+<line x1="22" y1="19" x2="63" y2="60" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+<line x1="22" y1="60" x2="63" y2="19" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+</graphics>
+	<ports>
+		<port name="in1" type="double" x="5" y="23" portConnection="" strict="false" />
+		<port name="in2" type="double" x="5" y="56" portConnection="" strict="false" />
+		<port name="out" type="double" x="80" y="39" portConnection="" strict="false" />
+	</ports>
+	<fields>
+       <field name="in1" type="double">
+        <known>
+          <graphics>
+            <text string="*self" colour="-16707894" x="-25" y="15" fontname="Arial" fontstyle="1" fontsize="12" transparency="255"/>
+          </graphics>
+        </known>
+      </field>
+       <field name="in2" type="double">
+        <known>
+          <graphics>
+            <text string="*self" colour="-16707894" x="-25" y="75" fontname="Arial" fontstyle="1" fontsize="12" transparency="255"/>
+          </graphics>
+        </known>
+      </field>
+	</fields>
+</class>
+<class type="class">
+	<name>Integrator</name>
+	<description>- a block that integrates the input</description>
+	<icon>icons_DSS/integrator.gif</icon>
+<graphics>
+<bounds x="0" y="0" width="85" height="80"/>
+<rect x="5" y="2" width="75" height="75" colour="-16777216" filled="false" fixed="false" stroke="1" linetype="0.0" transparency="255"/>
+<line x1="48" y1="22" x2="48" y2="19" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+<line x1="48" y1="19" x2="47" y2="18" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+<line x1="47" y1="18" x2="43" y2="18" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+<line x1="43" y1="18" x2="42" y2="20" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+<line x1="42" y1="20" x2="42" y2="58" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+<line x1="42" y1="58" x2="41" y2="60" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+<line x1="41" y1="60" x2="37" y2="60" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+<line x1="37" y1="60" x2="36" y2="59" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+<line x1="36" y1="59" x2="36" y2="56" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+</graphics>
+	<ports>
+		<port name="in" type="double" x="5" y="39" portConnection="" strict="false" />
+		<port name="out" type="double" x="80" y="39" portConnection="" strict="false" />
+	</ports>
+	<fields>
+		<field name="init" type="double"/>
+	</fields>
+</class>
+<class type="class">
+	<name>Inverter</name>
+	<description>- a block that negates the input values</description>
+	<icon>icons_DSS/inverter.gif</icon>
+<graphics>
+<bounds x="0" y="0" width="85" height="80"/>
+<rect x="5" y="2" width="75" height="75" colour="-16777216" filled="false" fixed="false" stroke="1" linetype="0.0" transparency="255"/>
+<text string="-1" colour="-16777216" x="15" y="51" fontname="Courier" fontstyle="1" fontsize="40" transparency="255"/>
+</graphics>
+	<ports>
+		<port name="in" type="double" x="5" y="39" portConnection="" strict="false" />
+		<port name="out" type="double" x="80" y="39" portConnection="" strict="false" />
+	</ports>
+</class>
+<class static="true" type="class">
+	<name>MultiSeriesGraph</name>
+	<description>- displays the simulation results as a graph</description>
+	<icon>icons_DSS/MultiSeriesGraph.png</icon>
+<graphics>
+<bounds x="0" y="0" width="90" height="90"/>
+<line x1="7" y1="13" x2="7" y2="87" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+<line x1="7" y1="12" x2="4" y2="20" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+<line x1="7" y1="12" x2="10" y2="20" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+<line x1="1" y1="83" x2="82" y2="83" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+<line x1="83" y1="83" x2="76" y2="86" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+<line x1="83" y1="83" x2="76" y2="80" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+<text string="x" colour="-16777216" x="86" y="95" fontname="Arial" fontstyle="1" fontsize="13" transparency="255"/>
+<text string="y[ ]" colour="-16777216" x="12" y="11" fontname="Arial" fontstyle="1" fontsize="13" transparency="255"/>
+</graphics>
+	<ports>
+		<port name="ys" type="double[]" x="7" y="49" portConnection="" strict="false" multi="true" />
+		<port name="x" type="double" x="43" y="83" portConnection="" strict="false" />
+	</ports>
+	<fields>
+		<field name="domainName" type="String"/>
+		<field name="seriesNames" type="String[]"/>
+		<field name="lineThickness" type="float"/>
+		<field name="axisAlwaysIncludeZero" type="boolean"/>
+		<field name="showSeparateAxis" type="boolean"/>
+		<field name="autoSort" type="boolean"/>
+		<field name="allowDuplicates" type="boolean"/>
+	</fields>
+</class>
+<class type="scheme">
+	<name>Simulator</name>
+	<description>- a simulation engine that defines the simulation parameters and supervises the simulation execution. Must be "Set As Super" in Properties.</description>
+	<icon>icons_DSS/simulator.gif</icon>
+<graphics>
+<bounds x="0" y="0" width="130" height="50"/>
+<rect x="0" y="0" width="130" height="50" colour="-16777216" filled="false" fixed="false" stroke="1" linetype="0.0" transparency="255"/>
+<text string="Simulation Engine" colour="-16777216" x="10" y="30" fontname="Arial" fontstyle="0" fontsize="12" transparency="255"/>
+</graphics>
+	<fields>
+		<field name="time" type="int" value="200" />
+		<field name="timeStep" type="double" value="1" />
+		<field name="T" type="double"/>
+		<field name="repaintImmediately" type="boolean" value="true" />
+		<field name="drawingDelay" type="long" value="50" />
+		<field name="debug" type="boolean" value="false" />
+	</fields>
+</class>
+<class type="class">
+	<name>IntegratorLoop</name>
+	<description>- a block that integrates the input, can be built in a loop</description>
+	<icon>icons_DSS/integratorLoop.gif</icon>
+<graphics>
+<bounds x="0" y="0" width="85" height="80"/>
+<rect x="5" y="2" width="75" height="75" colour="-16777216" filled="false" fixed="false" stroke="1" linetype="0.0" transparency="255"/>
+<line x1="48" y1="22" x2="48" y2="19" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+<line x1="48" y1="19" x2="47" y2="18" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+<line x1="47" y1="18" x2="43" y2="18" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+<line x1="43" y1="18" x2="42" y2="20" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+<line x1="42" y1="20" x2="42" y2="58" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+<line x1="42" y1="58" x2="41" y2="60" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+<line x1="41" y1="60" x2="37" y2="60" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+<line x1="37" y1="60" x2="36" y2="59" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+<line x1="36" y1="59" x2="36" y2="56" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
+<oval x="7" y="4" width="69" height="71" colour="-16777216" filled="false" fixed="false" stroke="1" linetype="0.0" transparency="255"/>
+</graphics>
+	<ports>
+		<port name="in" type="double" x="5" y="39" portConnection="" strict="false" />
+		<port name="out" type="double" x="80" y="39" portConnection="" strict="false" />
+	</ports>
+	<fields>
+		<field name="init" type="double" value="3"/>
+	</fields>
+</class>
+<class type="class">
+	<name>tick_Counter</name>
+	<description>- Simple counter, adds one to it's output every step</description>
+	<icon>icons_DSS/tick.gif</icon>
+<graphics>
+<bounds x="0" y="0" width="77" height="75"/>
+<rect x="1" y="2" width="73" height="69" colour="-16777216" filled="false" fixed="false" stroke="1" linetype="0.0" transparency="255"/>
+<text string="+1" colour="-16777216" x="13" y="52" fontname="Abyssinica SIL" fontstyle="0" fontsize="40" transparency="255"/>
+</graphics>
+	<ports>
+		<port name="out" type="double" x="33" y="3" portConnection="" strict="false" />
+	</ports>
+	<fields>
+		<field name="init" type="double" value="0"/>
+	</fields>
+</class>
 </package>

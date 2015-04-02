@@ -22,6 +22,3 @@ You can set the Graph object to display several inputs - the number is unlimited
 To execute a simulation choose Scheme>Run.
 
 Have Fun! :)
-
-NB! The current implementation uses Euler method for integration that is not usable for 
-any real-like application. A better implementation is coming soon.

@@ -17,16 +17,10 @@
 <properties x="245" y="168" xsize="1.0" ysize="1.0" strict="false"/>
 <fields/>
 </object>
-<object name="Integrator_0" type="Integrator" static="false">
-<properties x="70" y="43" xsize="1.0" ysize="1.0" strict="false"/>
-<fields>
-<field name="initstate" type="double" value="3"/>
-</fields>
-</object>
 <object name="Simulator_0" type="Simulator" static="false">
 <properties x="37" y="198" xsize="1.0" ysize="1.0" strict="false"/>
 <fields>
-<field name="time" type="int" value="20"/>
+<field name="time" type="int" value="5"/>
 <field name="timeStep" type="double" value="1"/>
 <field name="T" type="double"/>
 <field name="repaintImmediately" type="boolean" value="true"/>
@@ -34,16 +28,22 @@
 <field name="debug" type="boolean" value="false"/>
 </fields>
 </object>
+<object name="Integrator_0" type="Integrator" static="false">
+<properties x="106" y="44" xsize="1.0" ysize="1.0" strict="false"/>
+<fields>
+<field name="init" type="double" value="3"/>
+</fields>
+</object>
 <connection obj1="Clock_0" port1="out" obj2="MultiSeriesGraph_0" port2="x" strict="false">
-<breakpoints/>
-</connection>
-<connection obj1="Integrator_0" port1="out" obj2="MultiSeriesGraph_0" port2="ys" strict="false">
 <breakpoints/>
 </connection>
 <connection obj1="Clock_0" port1="out" obj2="Integrator_0" port2="in" strict="false">
 <breakpoints>
-<point x="38" y="173"/>
-<point x="38" y="82"/>
+<point x="59" y="173"/>
+<point x="59" y="83"/>
 </breakpoints>
+</connection>
+<connection obj1="Integrator_0" port1="out" obj2="MultiSeriesGraph_0" port2="ys" strict="false">
+<breakpoints/>
 </connection>
 </scheme>

@@ -42,11 +42,12 @@ class MultiSeriesGraph {
         paintAll, repaintImmediately -> done {drawAll};
     }@*/
 
+    double prevx = 0, firstround = -1;
     private JFreeChart chart;
     private ChartFrame frame;
     private XYPlot plot;
     private List<XYSeries> series = new ArrayList<XYSeries>();
-    
+    boolean firstDraw = true;
     private void initChart() {
         chart = ChartFactory.createXYLineChart( null, null, null,
                 null, PlotOrientation.VERTICAL, 
@@ -129,8 +130,11 @@ class MultiSeriesGraph {
             final boolean repaintImmediately ) throws Exception {
 
         for ( int i = 0; i < ys.length; i++ ) {
-            series.get( i ).add( x, ys[i], repaintImmediately );
+                    series.get( i ).add(x, ys[i], repaintImmediately );
+                    //System.out.println("Joonistan asju " + prevx);
+
         }
+        //prevx = x;
     }
 
     public void setSeriesName( String domain, String[] names, boolean showSeparateAxis ) {
