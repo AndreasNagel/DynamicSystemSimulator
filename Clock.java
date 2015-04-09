@@ -1,7 +1,7 @@
 class Clock extends Integrator {
 	/*@ 
 	specification Clock super Integrator {
-		init = timeStep;
+		init = 0; // timeStep;
                                     in = 1;
                                     empty = 1;
 	}

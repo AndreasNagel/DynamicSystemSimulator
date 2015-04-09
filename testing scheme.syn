@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE scheme SYSTEM "scheme.dtd">
+<scheme package="DynSysSim" superclass="Simulator_0">
+<object name="Clock_0" type="Clock" static="false">
+<properties x="49" y="301" xsize="1.0" ysize="1.0" strict="false"/>
+<fields/>
+</object>
+<object name="Simulator_0" type="Simulator" static="false">
+<properties x="68" y="390" xsize="1.0" ysize="1.0" strict="false"/>
+<fields>
+<field name="time" type="int" value="3"/>
+<field name="timeStep" type="double" value="1"/>
+<field name="T" type="double"/>
+<field name="repaintImmediately" type="boolean" value="true"/>
+<field name="drawingDelay" type="long" value="50"/>
+<field name="debug" type="boolean" value="false"/>
+</fields>
+</object>
+<object name="MultiSeriesGraph_0" type="MultiSeriesGraph" static="true">
+<properties x="394" y="67" xsize="1.0" ysize="1.0" strict="false"/>
+<fields>
+<field name="domainName" type="String"/>
+<field name="seriesNames" type="String[]"/>
+<field name="lineThickness" type="float"/>
+<field name="axisAlwaysIncludeZero" type="boolean"/>
+<field name="showSeparateAxis" type="boolean"/>
+<field name="autoSort" type="boolean"/>
+<field name="allowDuplicates" type="boolean"/>
+</fields>
+</object>
+<object name="Adder_0" type="Adder" static="false">
+<properties x="201" y="247" xsize="1.0" ysize="1.0" strict="false"/>
+<fields>
+<field name="k1" type="double" value="1"/>
+<field name="k2" type="double" value="1"/>
+<field name="in1" type="double"/>
+<field name="in2" type="double"/>
+</fields>
+</object>
+<object name="IntegratorLoop_0" type="IntegratorLoop" static="false">
+<properties x="305" y="182" xsize="1.0" ysize="1.0" strict="false"/>
+<fields>
+<field name="init" type="double" value="3"/>
+</fields>
+</object>
+<object name="IntegratorLoop_1" type="IntegratorLoop" static="false">
+<properties x="230" y="61" xsize="1.0" ysize="1.0" strict="false"/>
+<fields>
+<field name="init" type="double" value="3"/>
+</fields>
+</object>
+<connection obj1="Clock_0" port1="out" obj2="Adder_0" port2="in2" strict="false">
+<breakpoints/>
+</connection>
+<connection obj1="Clock_0" port1="out" obj2="IntegratorLoop_1" port2="in" strict="false">
+<breakpoints/>
+</connection>
+<connection obj1="IntegratorLoop_1" port1="out" obj2="MultiSeriesGraph_0" port2="ys" strict="false">
+<breakpoints/>
+</connection>
+<connection obj1="Clock_0" port1="out" obj2="MultiSeriesGraph_0" port2="x" strict="false">
+<breakpoints>
+<point x="382" y="367"/>
+</breakpoints>
+</connection>
+<connection obj1="IntegratorLoop_0" port1="out" obj2="Adder_0" port2="in1" strict="false">
+<breakpoints>
+<point x="409" y="189"/>
+<point x="293" y="171"/>
+<point x="293" y="210"/>
+<point x="184" y="242"/>
+<point x="202" y="270"/>
+</breakpoints>
+</connection>
+<connection obj1="Adder_0" port1="out" obj2="IntegratorLoop_0" port2="in" strict="false">
+<breakpoints/>
+</connection>
+<connection obj1="IntegratorLoop_0" port1="out" obj2="MultiSeriesGraph_0" port2="ys" strict="false">
+<breakpoints>
+<point x="376" y="121"/>
+<point x="397" y="114"/>
+</breakpoints>
+</connection>
+<connection obj1="Adder_0" port1="out" obj2="MultiSeriesGraph_0" port2="ys" strict="false">
+<breakpoints>
+<point x="313" y="145"/>
+</breakpoints>
+</connection>
+<connection obj1="Clock_0" port1="out" obj2="MultiSeriesGraph_0" port2="ys" strict="false">
+<breakpoints/>
+</connection>
+</scheme>
