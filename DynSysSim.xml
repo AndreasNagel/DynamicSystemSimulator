@@ -108,31 +108,6 @@
 	</fields>
 </class>
 <class type="class">
-	<name>Integrator</name>
-	<description>- a block that integrates the input</description>
-	<icon>icons_DSS/integrator.gif</icon>
-<graphics>
-<bounds x="0" y="0" width="85" height="80"/>
-<rect x="5" y="2" width="75" height="75" colour="-16777216" filled="false" fixed="false" stroke="1" linetype="0.0" transparency="255"/>
-<line x1="48" y1="22" x2="48" y2="19" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
-<line x1="48" y1="19" x2="47" y2="18" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
-<line x1="47" y1="18" x2="43" y2="18" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
-<line x1="43" y1="18" x2="42" y2="20" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
-<line x1="42" y1="20" x2="42" y2="58" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
-<line x1="42" y1="58" x2="41" y2="60" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
-<line x1="41" y1="60" x2="37" y2="60" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
-<line x1="37" y1="60" x2="36" y2="59" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
-<line x1="36" y1="59" x2="36" y2="56" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
-</graphics>
-	<ports>
-		<port name="in" type="double" x="5" y="39" portConnection="" strict="false" />
-		<port name="out" type="double" x="80" y="39" portConnection="" strict="false" />
-	</ports>
-	<fields>
-		<field name="init" type="double"/>
-	</fields>
-</class>
-<class type="class">
 	<name>Inverter</name>
 	<description>- a block that negates the input values</description>
 	<icon>icons_DSS/inverter.gif</icon>
@@ -146,7 +121,7 @@
 		<port name="out" type="double" x="80" y="39" portConnection="" strict="false" />
 	</ports>
 </class>
-<class static="true" type="class">
+<class type="class">
 	<name>MultiSeriesGraph</name>
 	<description>- displays the simulation results as a graph</description>
 	<icon>icons_DSS/MultiSeriesGraph.png</icon>
@@ -216,7 +191,7 @@
 		<port name="out" type="double" x="80" y="39" portConnection="" strict="false" />
 	</ports>
 	<fields>
-		<field name="init" type="double" value="3"/>
+		<field name="init" type="double" value="3" />
 	</fields>
 </class>
 <class type="class">
@@ -232,7 +207,7 @@
 		<port name="out" type="double" x="33" y="3" portConnection="" strict="false" />
 	</ports>
 	<fields>
-		<field name="init" type="double" value="0"/>
+		<field name="init" type="double" value="0" />
 	</fields>
 </class>
 </package>
