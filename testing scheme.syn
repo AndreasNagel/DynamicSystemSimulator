@@ -9,7 +9,7 @@
 <properties x="68" y="390" xsize="1.0" ysize="1.0" strict="false"/>
 <fields>
 <field name="time" type="int" value="3"/>
-<field name="timeStep" type="double" value="1"/>
+<field name="timeStep" type="double" value="0.1"/>
 <field name="T" type="double"/>
 <field name="repaintImmediately" type="boolean" value="true"/>
 <field name="drawingDelay" type="long" value="50"/>
@@ -37,56 +37,53 @@
 <field name="in2" type="double"/>
 </fields>
 </object>
-<object name="IntegratorLoop_0" type="IntegratorLoop" static="false">
-<properties x="305" y="182" xsize="1.0" ysize="1.0" strict="false"/>
+<object name="Integrator_3" type="Integrator" static="false">
+<properties x="166" y="105" xsize="1.0" ysize="1.0" strict="false"/>
 <fields>
-<field name="init" type="double" value="3"/>
+<field name="init" type="double" value="0"/>
 </fields>
 </object>
-<object name="IntegratorLoop_1" type="IntegratorLoop" static="false">
-<properties x="230" y="61" xsize="1.0" ysize="1.0" strict="false"/>
+<object name="Integrator_4" type="Integrator" static="false">
+<properties x="62" y="25" xsize="1.0" ysize="1.0" strict="false"/>
 <fields>
-<field name="init" type="double" value="3"/>
+<field name="init" type="double" value="0"/>
 </fields>
 </object>
-<connection obj1="Clock_0" port1="out" obj2="Adder_0" port2="in2" strict="false">
-<breakpoints/>
-</connection>
-<connection obj1="Clock_0" port1="out" obj2="IntegratorLoop_1" port2="in" strict="false">
-<breakpoints/>
-</connection>
-<connection obj1="IntegratorLoop_1" port1="out" obj2="MultiSeriesGraph_0" port2="ys" strict="false">
-<breakpoints/>
-</connection>
 <connection obj1="Clock_0" port1="out" obj2="MultiSeriesGraph_0" port2="x" strict="false">
 <breakpoints>
 <point x="382" y="367"/>
 </breakpoints>
 </connection>
-<connection obj1="IntegratorLoop_0" port1="out" obj2="Adder_0" port2="in1" strict="false">
+<connection obj1="Adder_0" port1="out" obj2="Integrator_3" port2="in" strict="false">
 <breakpoints>
-<point x="409" y="189"/>
-<point x="293" y="171"/>
-<point x="293" y="210"/>
-<point x="184" y="242"/>
-<point x="202" y="270"/>
+<point x="313" y="231"/>
+<point x="96" y="197"/>
 </breakpoints>
 </connection>
-<connection obj1="Adder_0" port1="out" obj2="IntegratorLoop_0" port2="in" strict="false">
+<connection obj1="Integrator_3" port1="out" obj2="MultiSeriesGraph_0" port2="ys" strict="false">
 <breakpoints/>
 </connection>
-<connection obj1="IntegratorLoop_0" port1="out" obj2="MultiSeriesGraph_0" port2="ys" strict="false">
-<breakpoints>
-<point x="376" y="121"/>
-<point x="397" y="114"/>
-</breakpoints>
+<connection obj1="Clock_0" port1="out" obj2="MultiSeriesGraph_0" port2="ys" strict="false">
+<breakpoints/>
 </connection>
 <connection obj1="Adder_0" port1="out" obj2="MultiSeriesGraph_0" port2="ys" strict="false">
 <breakpoints>
-<point x="313" y="145"/>
+<point x="406" y="227"/>
+<point x="312" y="148"/>
 </breakpoints>
 </connection>
-<connection obj1="Clock_0" port1="out" obj2="MultiSeriesGraph_0" port2="ys" strict="false">
+<connection obj1="Clock_0" port1="out" obj2="Integrator_4" port2="in" strict="false">
+<breakpoints>
+<point x="33" y="68"/>
+</breakpoints>
+</connection>
+<connection obj1="Integrator_4" port1="out" obj2="MultiSeriesGraph_0" port2="ys" strict="false">
+<breakpoints/>
+</connection>
+<connection obj1="Clock_0" port1="out" obj2="Adder_0" port2="in1m" strict="false">
+<breakpoints/>
+</connection>
+<connection obj1="Clock_0" port1="out" obj2="Adder_0" port2="in2m" strict="false">
 <breakpoints/>
 </connection>
 </scheme>

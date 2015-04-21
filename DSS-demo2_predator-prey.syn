@@ -1,23 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE scheme SYSTEM "scheme.dtd">
 <scheme package="DynSysSim" superclass="Simulator_0">
-<object name="Prey" type="Integrator" static="false">
-<properties x="235" y="178" xsize="1.0" ysize="1.0" strict="false"/>
-<fields>
-<field name="initstate" type="double" value="120"/>
-</fields>
-</object>
-<object name="Predators" type="Integrator" static="false">
-<properties x="579" y="144" xsize="1.0" ysize="1.0" strict="false"/>
-<fields>
-<field name="initstate" type="double" value="40"/>
-</fields>
-</object>
 <object name="Adder_0" type="Adder" static="false">
 <properties x="131" y="178" xsize="1.0" ysize="1.0" strict="false"/>
 <fields>
-<field name="k1" type="double" value="0.15"/>
-<field name="k2" type="double" value="-0.001"/>
+<field name="k1" type="double" value="0.03"/>
+<field name="k2" type="double" value="-0.0009"/>
 <field name="in1" type="double"/>
 <field name="in2" type="double"/>
 </fields>
@@ -25,8 +13,8 @@
 <object name="Adder_1" type="Adder" static="false">
 <properties x="470" y="144" xsize="1.0" ysize="1.0" strict="false"/>
 <fields>
-<field name="k1" type="double" value="-0.25"/>
-<field name="k2" type="double" value="0.00115"/>
+<field name="k1" type="double" value="-0.1050"/>
+<field name="k2" type="double" value="0.0018"/>
 <field name="in1" type="double"/>
 <field name="in2" type="double"/>
 </fields>
@@ -34,6 +22,8 @@
 <object name="Mult_0" type="Multiplier" static="false">
 <properties x="361" y="161" xsize="1.0" ysize="1.0" strict="false"/>
 <fields>
+<field name="k1" type="double" value="1"/>
+<field name="k2" type="double" value="1"/>
 <field name="in1" type="double"/>
 <field name="in2" type="double"/>
 </fields>
@@ -41,13 +31,11 @@
 <object name="Mult_1" type="Multiplier" static="false">
 <properties x="29" y="195" xsize="1.0" ysize="1.0" strict="false"/>
 <fields>
+<field name="k1" type="double" value="1"/>
+<field name="k2" type="double" value="1"/>
 <field name="in1" type="double"/>
 <field name="in2" type="double"/>
 </fields>
-</object>
-<object name="Clock_0" type="Clock" static="false">
-<properties x="756" y="185" xsize="1.0" ysize="1.0" strict="false"/>
-<fields/>
 </object>
 <object name="MultiSeriesGraph_0" type="MultiSeriesGraph" static="true">
 <properties x="748" y="27" xsize="1.0" ysize="1.0" strict="false"/>
@@ -64,81 +52,100 @@
 <object name="Simulator_0" type="Simulator" static="false">
 <properties x="24" y="35" xsize="1.0" ysize="1.0" strict="false"/>
 <fields>
-<field name="time" type="int" value="450"/>
+<field name="time" type="int" value="5000"/>
 <field name="timeStep" type="double"/>
-<field name="T" type="double" value="4"/>
+<field name="T" type="double" value="1"/>
 <field name="repaintImmediately" type="boolean" value="true"/>
 <field name="drawingDelay" type="long" value="10"/>
 <field name="debug" type="boolean" value="false"/>
 </fields>
 </object>
-<connection obj1="Adder_1" port1="out" obj2="Predators" port2="in" strict="false">
+<object name="prey" type="Integrator" static="false">
+<properties x="241" y="178" xsize="1.0" ysize="1.0" strict="false"/>
+<fields>
+<field name="init" type="double" value="120"/>
+</fields>
+</object>
+<object name="Clock_2" type="Clock" static="false">
+<properties x="756" y="172" xsize="1.0" ysize="1.0" strict="false"/>
+<fields/>
+</object>
+<object name="Predator" type="Integrator" static="false">
+<properties x="585" y="144" xsize="1.0" ysize="1.0" strict="false"/>
+<fields>
+<field name="init" type="double" value="20"/>
+</fields>
+</object>
+<connection obj1="Adder_0" port1="out" obj2="prey" port2="in" strict="false">
 <breakpoints/>
 </connection>
-<connection obj1="Predators" port1="out" obj2="Adder_1" port2="in1" strict="false">
-<breakpoints>
-<point x="685" y="183"/>
-<point x="685" y="122"/>
-<point x="456" y="122"/>
-<point x="456" y="167"/>
-</breakpoints>
-</connection>
-<connection obj1="Mult_0" port1="out" obj2="Adder_1" port2="in2" strict="false">
+<connection obj1="Clock_2" port1="out" obj2="MultiSeriesGraph_0" port2="x" strict="false">
 <breakpoints/>
 </connection>
-<connection obj1="Predators" port1="out" obj2="Mult_0" port2="in1" strict="false">
-<breakpoints>
-<point x="685" y="183"/>
-<point x="685" y="122"/>
-<point x="349" y="122"/>
-<point x="349" y="184"/>
-</breakpoints>
-</connection>
-<connection obj1="Prey" port1="out" obj2="Mult_0" port2="in2" strict="false">
+<connection obj1="Adder_1" port1="out" obj2="Predator" port2="in" strict="false">
 <breakpoints/>
 </connection>
-<connection obj1="Prey" port1="out" obj2="Adder_0" port2="in1" strict="false">
+<connection obj1="Predator" port1="out" obj2="MultiSeriesGraph_0" port2="ys" strict="false">
 <breakpoints>
-<point x="334" y="217"/>
-<point x="334" y="160"/>
-<point x="116" y="160"/>
-<point x="116" y="201"/>
+<point x="705" y="183"/>
+<point x="705" y="76"/>
 </breakpoints>
 </connection>
-<connection obj1="Prey" port1="out" obj2="Mult_1" port2="in1" strict="false">
+<connection obj1="prey" port1="out" obj2="MultiSeriesGraph_0" port2="ys" strict="false">
 <breakpoints>
-<point x="334" y="217"/>
-<point x="334" y="160"/>
-<point x="18" y="160"/>
-<point x="18" y="218"/>
+<point x="346" y="217"/>
+<point x="346" y="120"/>
+<point x="705" y="120"/>
+<point x="705" y="76"/>
 </breakpoints>
 </connection>
-<connection obj1="Predators" port1="out" obj2="Mult_1" port2="in2" strict="false">
-<breakpoints>
-<point x="685" y="183"/>
-<point x="685" y="295"/>
-<point x="19" y="295"/>
-<point x="19" y="251"/>
-</breakpoints>
-</connection>
-<connection obj1="Mult_1" port1="out" obj2="Adder_0" port2="in2" strict="false">
+<connection obj1="Mult_0" port1="out" obj2="Adder_1" port2="in2m" strict="false">
 <breakpoints/>
 </connection>
-<connection obj1="Adder_0" port1="out" obj2="Prey" port2="in" strict="false">
+<connection obj1="Mult_1" port1="out" obj2="Adder_0" port2="in2m" strict="false">
 <breakpoints/>
 </connection>
-<connection obj1="Prey" port1="out" obj2="MultiSeriesGraph_0" port2="ys" strict="false">
-<breakpoints>
-<point x="334" y="217"/>
-<point x="334" y="76"/>
-</breakpoints>
-</connection>
-<connection obj1="Predators" port1="out" obj2="MultiSeriesGraph_0" port2="ys" strict="false">
-<breakpoints>
-<point x="710" y="183"/>
-</breakpoints>
-</connection>
-<connection obj1="Clock_0" port1="out" obj2="MultiSeriesGraph_0" port2="x" strict="false">
+<connection obj1="prey" port1="out" obj2="Mult_0" port2="in2m" strict="false">
 <breakpoints/>
+</connection>
+<connection obj1="Predator" port1="out" obj2="Adder_1" port2="in1m" strict="false">
+<breakpoints>
+<point x="705" y="183"/>
+<point x="705" y="120"/>
+<point x="450" y="120"/>
+<point x="450" y="167"/>
+</breakpoints>
+</connection>
+<connection obj1="Predator" port1="out" obj2="Mult_0" port2="in1m" strict="false">
+<breakpoints>
+<point x="705" y="183"/>
+<point x="705" y="120"/>
+<point x="346" y="120"/>
+<point x="346" y="184"/>
+</breakpoints>
+</connection>
+<connection obj1="Predator" port1="out" obj2="Mult_1" port2="in1m" strict="false">
+<breakpoints>
+<point x="705" y="183"/>
+<point x="705" y="120"/>
+<point x="14" y="120"/>
+<point x="14" y="218"/>
+</breakpoints>
+</connection>
+<connection obj1="prey" port1="out" obj2="Mult_1" port2="in2m" strict="false">
+<breakpoints>
+<point x="346" y="217"/>
+<point x="346" y="120"/>
+<point x="14" y="120"/>
+<point x="14" y="251"/>
+</breakpoints>
+</connection>
+<connection obj1="prey" port1="out" obj2="Adder_0" port2="in1m" strict="false">
+<breakpoints>
+<point x="346" y="217"/>
+<point x="346" y="120"/>
+<point x="120" y="120"/>
+<point x="120" y="201"/>
+</breakpoints>
 </connection>
 </scheme>

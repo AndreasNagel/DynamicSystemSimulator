@@ -48,9 +48,9 @@ public class Simulator {
 	 * Assumes that the timeSteps are equal through the simulation.
 	 */
     public void run( Subtask st, Object initst, int time, int steps,
-            boolean repaintImmediately, long delay, boolean debug ) {
-        System.out.println( "\nTrying to run...");
-
+            boolean repaintImmediately, long delay, boolean debug ) 
+    {
+System.out.println("Trying to run");
         if ( debug ) {
             System.out.println( "\nTotal simulation time is: " + time + " doing "+steps+" steps.");
         }

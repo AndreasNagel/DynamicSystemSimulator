@@ -11,9 +11,9 @@ import org.jfree.data.xy.*;
 
 class MultiSeriesGraph {
     /*@ specification MultiSeriesGraph {
-
-        double x;
-        alias (double) ys;
+        double xval, xonTime;
+        alias (double) x = (xval, xonTime);
+        alias (double[]) ys;
         void init_ready, drawing_ready, paintAll, done, updated;
         boolean repaintImmediately, axisAlwaysIncludeZero, showSeparateAxis;
         boolean autoSort, allowDuplicates;
@@ -128,7 +128,7 @@ class MultiSeriesGraph {
         frame.setVisible( true );
     }
 
-    public void draw( final double x, final double[] ys,
+    public void draw( final double[] x, final double[][] ys,
             final boolean repaintImmediately ) throws Exception {
         countDraw++;
         prevy.ensureCapacity(ys.length);
@@ -136,23 +136,19 @@ class MultiSeriesGraph {
         {
             prevy.add(0.0);
         }
-        System.out.println("Countdraw: " + countDraw);
         for ( int i = 0; i < ys.length; i++ ) {
-            System.out.println("x, y, prevx, prevy: " + x + "; " + ys[i] + "; " + prevx + ";" + prevy.size());
-                if(x == ys[i] && prevy.get(i) == prevx)
+                // If the input is coming a step ahead (hasn't been corrected yet), correct it on graph
+                if(ys[i][1] == 0)
                 {
-                    System.out.println("Joonistan kella");
-                    series.get( i ).add(prevx, prevx, repaintImmediately );
+                    series.get( i ).add(prevx, prevy.get(i), repaintImmediately );
                 }
-                else
+                else // Regular functions on y-axis
                 {
-                        series.get( i ).add(prevx, ys[i], repaintImmediately );
-                        System.out.println("Joonistan asju");
+                        series.get( i ).add(prevx, ys[i][0], repaintImmediately );
                 }                    
-                prevy.set(i, ys[i]);
+                prevy.set(i, ys[i][0]);
             }
-                    //System.out.println("Joonistan asju " + prevx);
-        prevx = x;
+        prevx = x[0];
     }
 
     public void setSeriesName( String domain, String[] names, boolean showSeparateAxis ) {
@@ -187,8 +183,8 @@ class MultiSeriesGraph {
         boolean showSeparateAxis = false;
         g.init( range.length, 4f, false, showSeparateAxis, false, true );
         g.setSeriesName( "domain", range, showSeparateAxis );
-        g.draw( 1, new double[] { 0.2, 6, 60 }, true );
-        g.draw( 2, new double[] { 0.3, 8, 40 }, true );
-        g.draw( 3, new double[] { 0.6, 7, 12 }, true );
+        g.draw( new double[] {1, 0}, new double[][] { {0.2, 0}, {6, 0}, {60, 0} }, true );
+        g.draw( new double[] {2, 0}, new double[][] { {0.3, 0}, {8, 0}, {40, 0} }, true );
+        g.draw( new double[] {3, 0}, new double[][] { {0.6, 0}, {7, 0}, {12, 0} }, true );
     }
 }
