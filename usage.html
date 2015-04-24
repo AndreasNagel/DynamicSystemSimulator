@@ -1,0 +1,31 @@
+<div class="panel panel-default">
+  <div class="panel-body">
+
+<h1>Usage</h1>
+
+<p>Typically Mealy machines are to be used as a part of a bigger (Dynamic or Discrete) 
+System Simulator. For that the Mealy machine diagrams must be exported as objects and 
+then these objects can be included in those Simulation schemes.</p>
+
+<p>Current CoCoViLa implementation (v.0.9.8.12) do not support a multitude of packages in a project, 
+hence the content of MealyMachine package should be merged with the content of the Simulator. 
+It is advisable to do as follows:</p>
+
+<ol> 
+ <li> Make a copy of the Simulator package folder (together with all the files and 
+ folders in it) and name it as you like (for example MySimulator).</li>
+ <li> Rename the .xml file. It is advisable to rename it to have the same name as 
+ the package folder (for example MySimulator.xml).</li>
+ <li> Edit the .xml file (MySimulator.xml) and copy all the classes from the MealyMachine.xml 
+ (located in the MealyMachine package folder) into it.</li>
+ <li> Copy all the files (except the MealyMachine.xml) from the MealyMachine package folder 
+ into MySimulator package folder.</li>
+</ol>
+
+<p>Now, when you load the MySimulator package into CoCoViLa Scheme Editor you'll get the visual 
+classes for creating Mealy machines together with the classes from the Simulator package.</p>
+
+<p>Next: <a href="creating.html" class="inner-link">Creating a Mealy state chart</a></p>
+
+  </div>
+  </div>
