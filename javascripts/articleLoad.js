@@ -8,10 +8,10 @@ $(function() {
     
     
     $('#content').on('click', '.inner-link', function(event) {
-   																	event.preventDefault();
-    																	var url=$(this).attr('href');
-    																	$('#content').load(url);
-																	});
+        event.preventDefault();
+		var url=$(this).attr('href');
+		$('#content').load(url);
+	});
   
     
 
