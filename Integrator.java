@@ -1,18 +1,15 @@
 class Integrator {
     /*@ specification Integrator {
-    double init, inval, outval, timeStep;
+    double init, initStateType, curStateType, nextStateType, outval, timeStep;
     double empty, pin, nextState, isin, curState, stepCounter, inonTime, outonTime;
-    stepCounter = 0;
-    outonTime = 1;
-    -> empty {emptyEval};
-    alias (double) in = (inval, inonTime);
-    alias (double) out = (outval, outonTime);
-    alias (double) initstate = (init, empty, stepCounter);
-    alias (double) state = (curState, pin, stepCounter);
-    alias (double) nextstate = (nextState, isin, stepCounter);
+    initStateType = 1.0;
+    double in, out;
+    alias (double) initstate = (initStateType, init, init, init);
+    alias (double) state = (curStateType,curState, pin, stepCounter);
+    alias (double) nextstate = (nextStateType, nextState, isin, stepCounter);
 
-    state, state.length, inval, timeStep -> nextstate {calcNext};
-    curState -> outval {outRes};
+    state, state.length, in, timeStep -> nextstate {calcNext};
+    curState -> out {outRes};
     }@*/ 
 
     double emptyEval()
@@ -26,22 +23,28 @@ class Integrator {
         return outval;
     }
 
-    double[] calcNext(double[] state, int len, double in, double step)
-    {
-        double[] results = new double[len];
-        if(Double.isNaN(state[1]))
-        {
-            //Next line can be uncommented for debugging purposes
-            //System.out.println("Getting the next with: " + java.util.Arrays.toString(state) );
-            results[0] = state[0] + in*step;
-            results[1] = in;
-        }
-        else
-        {
-            results[0] = state[0] + (in + state[1]) / 2*step;
-            results[1] = in;    
-        }
-        return results;
-    }
+
+	public double[] calcNext(double[] state, int stateSize, double in, double dt) {
+		double[] nextstate = new double[stateSize];
+		double type = state[0];
+		double curstate = state[1];
+		double oldstate = state[2];
+		double oldin = state[3];
+		
+		double step = in / dt;
+
+		if (type == 0.0) {
+			nextstate[0] = 1.0;
+			nextstate[1] = oldstate + 0.5 * ( oldin + step );
+			nextstate[2] = Double.NaN;
+			nextstate[3] = Double.NaN;
+		} else {
+			nextstate[0] = 0.0;
+			nextstate[1] = curstate + step;
+			nextstate[2] = curstate;
+			nextstate[3] = step;
+		}
+ 		return nextstate;
+	}
 
 }

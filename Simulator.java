@@ -13,9 +13,12 @@ public class Simulator {
 		double timeStep; // length of a simulation step in time units (Period of steps, think of oscillation)
 		double T; // number of steps in a time unit (frequency of steps)
 		int steps; // number of steps to be processed during the simulation (Ending on that step)
+		int type;
+		type = 2;
+		T = 1/timeStep;
 
-		timeStep = 1 / T;
-		steps = time / timeStep;
+		//timeStep = 1/T;
+		steps = time * T * type;
 		
 		long drawingDelay; // delay in ms before computing next step
 		boolean repaintImmediately; // update graphics during the computation
@@ -27,8 +30,10 @@ public class Simulator {
 		alias nextstate  = (*.nextstate);
 		alias finalstate = (*.finalstate);
                                     // Gathers up all the Step times from objects on scheme
+		alias (double) allTypes = (*.type);
 		alias (double) allTimeStep = (*.timeStep);
-		allTimeStep.length, timeStep -> allTimeStep {setDoubles};
+		allTypes.length, type -> allTypes{setDoubles};
+		allTimeStep.length, T -> allTimeStep {setDoubles};
 
 		alias (boolean) repaint = (*.repaintImmediately);
 		repaint.length, repaintImmediately -> repaint {setBooleans};

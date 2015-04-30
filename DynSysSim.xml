@@ -20,7 +20,7 @@
 <line x1="35" y1="35" x2="47" y2="18" colour="-16777216" fixed="false" stroke="1" linetype="0.0" transparency="255"/>
 </graphics>
 	<ports>
-		<port name="out" type="double[]" x="35" y="5" portConnection="" strict="false" />
+		<port name="out" type="double" x="35" y="5" portConnection="" strict="false" />
 	</ports>
 </class>
 <class type="class">
@@ -38,11 +38,11 @@
 <line x1="60" y1="62" x2="60" y2="56" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
 </graphics>
 	<ports>
-		<port name="in1m" type="double[]" x="5" y="23" portConnection="" strict="false" />
-		<port name="in2m" type="double[]" x="5" y="56" portConnection="" strict="false" />
-		<port name="k1m" type="double[]" x="20" y="2" portConnection="" strict="false" />
-		<port name="k2m" type="double[]" x="20" y="77" portConnection="" strict="false" />
-		<port name="out" type="double[]" x="80" y="39" portConnection="" strict="false" />
+		<port name="in1" type="double" x="5" y="23" portConnection="" strict="false" />
+		<port name="in2" type="double" x="5" y="56" portConnection="" strict="false" />
+		<port name="k1" type="double" x="20" y="2" portConnection="" strict="false" />
+		<port name="k2" type="double" x="20" y="77" portConnection="" strict="false" />
+		<port name="out" type="double" x="80" y="39" portConnection="" strict="false" />
 	</ports>
 	<fields>
        <field name="k1" type="double" value="1">
@@ -85,8 +85,8 @@
 <text string="-1" colour="-16777216" x="15" y="51" fontname="Courier" fontstyle="1" fontsize="40" transparency="255"/>
 </graphics>
 	<ports>
-		<port name="in" type="double[]" x="5" y="39" portConnection="" strict="false" />
-		<port name="out" type="double[]" x="80" y="39" portConnection="" strict="false" />
+		<port name="in" type="double" x="5" y="39" portConnection="" strict="false" />
+		<port name="out" type="double" x="80" y="39" portConnection="" strict="false" />
 	</ports>
 </class>
 <class static="true" type="class">
@@ -105,8 +105,8 @@
 <text string="y[ ]" colour="-16777216" x="12" y="11" fontname="Arial" fontstyle="1" fontsize="13" transparency="255"/>
 </graphics>
 	<ports>
-		<port name="ys" type="double[][]" x="7" y="49" portConnection="" strict="false" multi="true" />
-		<port name="x" type="double[]" x="43" y="83" portConnection="" strict="false" />
+		<port name="ys" type="double[]" x="7" y="49" portConnection="" strict="false" multi="true" />
+		<port name="x" type="double" x="43" y="83" portConnection="" strict="false" />
 	</ports>
 	<fields>
 		<field name="domainName" type="String"/>
@@ -154,8 +154,8 @@
 <line x1="36" y1="59" x2="36" y2="56" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
 </graphics>
 	<ports>
-		<port name="in" type="double[]" x="5" y="39" portConnection="" strict="false" />
-		<port name="out" type="double[]" x="80" y="39" portConnection="" strict="false" />
+		<port name="in" type="double" x="5" y="39" portConnection="" strict="false" />
+		<port name="out" type="double" x="80" y="39" portConnection="" strict="false" />
 	</ports>
 	<fields>
 		<field name="init" type="double" value="0" />
@@ -172,11 +172,11 @@
 <line x1="22" y1="60" x2="62" y2="20" colour="-16777216" fixed="false" stroke="2" linetype="0.0" transparency="255"/>
 </graphics>
 	<ports>
-		<port name="in1m" type="double[]" x="5" y="23" portConnection="" strict="false" />
-		<port name="in2m" type="double[]" x="5" y="56" portConnection="" strict="false" />
-		<port name="k1m" type="double[]" x="20" y="2" portConnection="" strict="false" />
-		<port name="k2m" type="double[]" x="20" y="77" portConnection="" strict="false" />
-		<port name="out" type="double[]" x="80" y="39" portConnection="" strict="false" />
+		<port name="in1" type="double" x="5" y="23" portConnection="" strict="false" />
+		<port name="in2" type="double" x="5" y="56" portConnection="" strict="false" />
+		<port name="k1" type="double" x="20" y="2" portConnection="" strict="false" />
+		<port name="k2" type="double" x="20" y="77" portConnection="" strict="false" />
+		<port name="out" type="double" x="80" y="39" portConnection="" strict="false" />
 	</ports>
 	<fields>
        <field name="k1" type="double" value="1">
