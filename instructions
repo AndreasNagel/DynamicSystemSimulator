@@ -1,0 +1,42 @@
+Dynamic System Simulator
+
+This package can calculate an approximation to an integrated value of a block-constructed function. The package contains different blocks that can be used to create different functions on a scheme and it also allows the approximation of those functions to be calculated on the scheme. Note that the package can not actually calculate the integral of a function, but rather a numeral approximation of the integral's value.
+
+Block Schemes
+
+Bulding blocks
+
+As mentioned, the schemes can be built from different building blocks. Here is a list of those blocks and a detailed description is down below.
+ - Clock
+ - Adder
+ - Multiplier
+ - Inverter
+ - Multi Series Graph
+ - Simulation Engine
+ - Integrator
+
+ 
+Clock
+
+The clock is a fairly simple concept. It works as a variable for the scheme. It starts from the zero and starts counting upwards with a step defined in Simulation Engine. The clock is usually connected to the x axis of the multiseries graph block, so in essence the clock works as a variable 'x' in standard integrations. However, it is also possible to create schemes that are not directly dependent of the variable x.
+The clock has no inputs and a single output(out).
+
+
+Adder
+
+The adder works by summing together two input variables. The input variables can be multiplied by a constant or another variable before they are added together. This block is almost essential to any scheme because it can facilitate operations such as summation, subtraction, multiplication, and division. The latter two operations can also be performed by the multiplier block, in order two sustain the clarity of the scheme. The inputs on this block are used as follows: in1 is multiplied by k1 and in2 is multiplied by k2, after which in1 and in2 are added and given as the output value.
+The adder block has four inputs (k1, in1, in2, k2) and a single output (out). Inputs are listed as k1, in1, in2 and k2.
+
+Multiplier
+
+This block multiplies the two inputs it receives and gives the result out as an output. It currently only gives an option to multiply the values, division with a constant can only be conducted by giving the input value as a reciprocal of the selected constant. It can also return powers of a variable, by using two extra inputs(k1, k2) which act as a power to a base(in1, in2). The values in the given powers will then be multiplied by each other and the calculated value is the output of this block.
+The multiplier block has four inputs (k1, k2, in1, in2) and a single output(out).
+
+Inverter
+
+The inverter block takes a single input and produces a single output that is the input multiplied by -1. It turns a positive value into a negative value and a negative value into a positive value.
+The inverter block has an input (in) and an output (out).
+
+Multi Series Graph
+
+This is the block that does all the drawing on the graph. It requires two or more inputs to work properly - one on it's x-axis and another on it's y-axis. The number of inputs on y-axis is not limited, whereas only one may be inserted to the x-axis. That allows drawing multiple series on a single graph. This block also has multiple fields which may all be left empty, except for the "static" checkbox, which must be checked in order to make the scheme run. Ohter fields can be filled for certain purposes, such as naming the series that are drawn on the graph and more.
