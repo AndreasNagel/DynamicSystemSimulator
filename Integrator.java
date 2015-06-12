@@ -1,7 +1,7 @@
 class Integrator {
     /*@ specification Integrator {
     double init, initStateType, curStateType, nextStateType, outval, timeStep;
-    double empty, pin, nextState, isin, curState, stepCounter, inonTime, outonTime;
+    double empty, pin, nextState, isin, curState, stepCounter;
     initStateType = 1.0;
     double in, out;
     alias (double) initstate = (initStateType, init, init, init);
