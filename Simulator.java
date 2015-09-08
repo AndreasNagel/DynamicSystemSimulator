@@ -55,12 +55,13 @@ public class Simulator {
     public void run( Subtask st, Object initst, int time, int steps,
             boolean repaintImmediately, long delay, boolean debug ) 
     {
-System.out.println("Trying to run");
+    //System.out.println("Trying to run");
         if ( debug ) {
             System.out.println( "\nTotal simulation time is: " + time + " doing "+steps+" steps.");
         }
         // subtaskile (state -> nextstate, allDrawn), initial valuation done here
         Object[] in = new Object[] { initst };
+        //System.out.println("INIT: " + in.initst);
         for ( int i = 0; i <= steps; i++ ) {
             Object[] out = st.run( in );
             in = out;

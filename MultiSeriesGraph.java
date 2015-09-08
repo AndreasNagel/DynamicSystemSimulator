@@ -134,9 +134,15 @@ class MultiSeriesGraph {
                 if(countDraw%type ==1)
                     {
                         series.get( i ).add(x, ys[i], repaintImmediately );
-                        System.out.println("Joonistan graafikule punkti (" + x +"; " + ys[i] + ")");
+                        //Uncomment next line to print out all the points drawn to the graph
+                        //System.out.println("Joonistan graafikule punkti (" + x +"; " + ys[i] + ")");
                     }
             }
+//Uncomment next lines to print all y-values of one line in the cosole
+                //if(countDraw%type ==1)
+                    //{
+                        //System.out.println(Math.round(ys[0]*10000000)/(double)10000000);
+                   //}
     }
 
     public void setSeriesName( String domain, String[] names, boolean showSeparateAxis ) {

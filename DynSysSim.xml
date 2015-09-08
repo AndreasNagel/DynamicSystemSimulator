@@ -209,4 +209,18 @@
       </field>
 	</fields>
 </class>
+<class type="class">
+	<name>Cosine</name>
+	<description>a block that gives a cosine of a value</description>
+	<icon>default.gif</icon>
+<graphics>
+<bounds x="0" y="0" width="85" height="80"/>
+<rect x="5" y="2" width="75" height="75" colour="-16777216" filled="false" fixed="false" stroke="1" linetype="0.0" transparency="255"/>
+<text string="Cos" colour="-16777216" x="15" y="51" fontname="Courier" fontstyle="1" fontsize="40" transparency="255"/>
+</graphics>
+	<ports>
+		<port name="in" type="double" x="5" y="39" portConnection="" strict="false" />
+		<port name="out" type="double" x="80" y="39" portConnection="" strict="false" />
+	</ports>
+</class>
 </package>

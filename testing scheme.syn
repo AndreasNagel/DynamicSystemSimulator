@@ -80,10 +80,10 @@
 <connection obj1="Integrator_4" port1="out" obj2="MultiSeriesGraph_0" port2="ys" strict="false">
 <breakpoints/>
 </connection>
-<connection obj1="Clock_0" port1="out" obj2="Adder_0" port2="in1m" strict="false">
+<connection obj1="Clock_0" port1="out" obj2="Adder_0" port2="in1" strict="false">
 <breakpoints/>
 </connection>
-<connection obj1="Clock_0" port1="out" obj2="Adder_0" port2="in2m" strict="false">
+<connection obj1="Adder_0" port1="in2" obj2="Clock_0" port2="out" strict="false">
 <breakpoints/>
 </connection>
 </scheme>
