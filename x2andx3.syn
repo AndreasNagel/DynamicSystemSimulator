@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE scheme SYSTEM "scheme.dtd">
+<scheme package="DynSysSim" superclass="Simulator_0">
+<object name="Simulator_0" type="Simulator" static="false">
+<properties x="24" y="35" xsize="1.0" ysize="1.0" strict="false"/>
+<fields>
+<field name="time" type="int" value="5"/>
+<field name="timeStep" type="double" value="0.1"/>
+<field name="T" type="double"/>
+<field name="repaintImmediately" type="boolean" value="true"/>
+<field name="drawingDelay" type="long" value="10"/>
+<field name="debug" type="boolean" value="false"/>
+</fields>
+</object>
+<object name="Clock_0" type="Clock" static="false">
+<properties x="68" y="216" xsize="1.0" ysize="1.0" strict="false"/>
+<fields/>
+</object>
+<object name="Multiplier_0" type="Multiplier" static="false">
+<properties x="236" y="136" xsize="1.0" ysize="1.0" strict="false"/>
+<fields>
+<field name="k1" type="double" value="1"/>
+<field name="k2" type="double" value="1"/>
+<field name="in1" type="double"/>
+<field name="in2" type="double"/>
+</fields>
+</object>
+<object name="MultiSeriesGraph_0" type="MultiSeriesGraph" static="true">
+<properties x="588" y="64" xsize="1.0" ysize="1.0" strict="false"/>
+<fields>
+<field name="domainName" type="String"/>
+<field name="seriesNames" type="String[]"/>
+<field name="lineThickness" type="float"/>
+<field name="axisAlwaysIncludeZero" type="boolean"/>
+<field name="showSeparateAxis" type="boolean"/>
+<field name="autoSort" type="boolean"/>
+<field name="allowDuplicates" type="boolean"/>
+</fields>
+</object>
+<object name="Integrator_1" type="Integrator" static="false">
+<properties x="448" y="38" xsize="1.0" ysize="1.0" strict="false"/>
+<fields>
+<field name="init" type="double" value="0"/>
+</fields>
+</object>
+<object name="Cosine_0" type="Cosine" static="false">
+<properties x="305" y="304" xsize="1.0" ysize="1.0" strict="false"/>
+<fields/>
+</object>
+<object name="Integrator_0" type="Integrator" static="false">
+<properties x="504" y="308" xsize="1.0" ysize="1.0" strict="false"/>
+<fields>
+<field name="init" type="double" value="0"/>
+</fields>
+</object>
+<connection obj1="Clock_0" port1="out" obj2="Multiplier_0" port2="in2" strict="false">
+<breakpoints/>
+</connection>
+<connection obj1="Multiplier_0" port1="in1" obj2="Clock_0" port2="out" strict="false">
+<breakpoints/>
+</connection>
+<connection obj1="Multiplier_0" port1="out" obj2="MultiSeriesGraph_0" port2="ys" strict="false">
+<breakpoints>
+<point x="529" y="168"/>
+</breakpoints>
+</connection>
+<connection obj1="Clock_0" port1="out" obj2="MultiSeriesGraph_0" port2="x" strict="false">
+<breakpoints>
+<point x="638" y="219"/>
+</breakpoints>
+</connection>
+<connection obj1="Integrator_1" port1="out" obj2="MultiSeriesGraph_0" port2="ys" strict="false">
+<breakpoints/>
+</connection>
+<connection obj1="Clock_0" port1="out" obj2="MultiSeriesGraph_0" port2="ys" strict="false">
+<breakpoints>
+<point x="458" y="258"/>
+</breakpoints>
+</connection>
+<connection obj1="Multiplier_0" port1="out" obj2="Integrator_1" port2="in" strict="false">
+<breakpoints/>
+</connection>
+<connection obj1="Clock_0" port1="out" obj2="Cosine_0" port2="in" strict="false">
+<breakpoints/>
+</connection>
+<connection obj1="Cosine_0" port1="out" obj2="MultiSeriesGraph_0" port2="ys" strict="false">
+<breakpoints/>
+</connection>
+<connection obj1="Cosine_0" port1="out" obj2="Integrator_0" port2="in" strict="false">
+<breakpoints/>
+</connection>
+<connection obj1="Integrator_0" port1="out" obj2="MultiSeriesGraph_0" port2="ys" strict="false">
+<breakpoints>
+<point x="641" y="311"/>
+<point x="545" y="120"/>
+</breakpoints>
+</connection>
+</scheme>
