@@ -2,14 +2,14 @@
 <html lang="en">
 
 <head> <!-- Head -->
-  <title>CoCoViLa  demo package for Mealy Machine</title>
+  <title>CoCoViLa Geometry package</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="http://cocovila.github.io/bootstrap/bootstrap.css">
   <link rel="stylesheet" href="http://cocovila.github.io/css/customize.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="javascripts/articleLoad.js"></script>
-  <script src="javascripts/load.js"></script>
+  <script src="js/articleLoad.js"></script>
+  <script src="js/load.js"></script>
   <script src="http://cocovila.github.io/bootstrap/bootstrap.min.js"></script>
 </head> <!-- Head end -->
 
@@ -22,22 +22,14 @@
 <div class="container-fluid">
   <div class="panel panel-default">
     <div class="panel-body">
-      <h1>Dynamic System Simulator</h1>
+      <h1>Geometry</h1>
     </div>
   </div>
   <div class="row">
 
     <div class="col-md-2 sidebar">
       <ul class="nav nav-sidebar">
-        <li><a href="usage.html" class="sidebar-link">Usage</a></li>
-        <li><a href="components.html" class="sidebar-link">Components</a></li>
-        <li><a href="io_definition.html" class="sidebar-link">Creating a Scheme</a></li>
-        <li><a href="mm2object.html" class="sidebar-link">Running a scheme</a></li>
-        <li><a href="action_lang.html" class="sidebar-link">Condition and action language</a></li>
-        <li><a href="insights.html" class="sidebar-link">Insights</a></li>
-        <li><a href="troubleshooting.html" class="sidebar-link">Troubleshooting</a></li>
-        <li><a href="hands-on.html" class="sidebar-link">Hands-on</a></li>
-        <li><a href="download.html" class="sidebar-link">Download</a></li>
+        <li><a href="index.html">Introduction</a></li>
       </ul>
     </div>
 
@@ -45,20 +37,34 @@
       <div id="content">
         <div class="panel panel-default">
           <div class="panel-body">
-<p>A CoCoViLa package that is meant to be used to simulate different processes through schemes.</p>
-
-<img src="img/flying-mealy-diagram.png" alt="flying-mealy-diagram" class="center-block">
-              
-<p>A state diagram is composed of an Initial State and one or more States. It may have an End State. 
-The States are to be connected with Transitions. Transitions are labeled with conditional 
-expressions and actions. Based on the conditional expressions it is decided which of the 
-Transitions exiting the current State is used on execution. If there are several 
-Transitions that are usable (their conditional expressions evaluate to true) the one, 
-having alphabetically first name, is used. The action is executed when the Transition is used.
-You can find more information on Mealy machine 
-<a href="http://en.wikipedia.org/wiki/Mealy_machine">here</a>.
+<p>
+Dynamic System Simulator - A CoCoVila package that enables to simulate a Dynamic system.
+</p>
+<p>
+This package consists of a Simulation engine, a clock, an adder, an inverter, an integrator, a multiplier, a cosine and a graph drawing block.
 </p>
 
+<img src="img/all-shapes.png" alt="scheme1" class="center-block">
+
+<p>
+The package enables to simulate a dynamic type of a system, for examble a system of foxes and rabbits population in accordance to each other or to draw a graph of a specific alternate current. Mostly anything, that can be described with a continuous mathematical function. In order to simulate a desired system, one must find out how the components affect each other and compose a scheme in the package accordingly. If the scheme is composed then the simulator will draw a graph of all the desired values with a designated step, thus simulating the system.
+</p>
+<p>Block descriptions
+<ul>
+  <li> Simulation engine - The required part of every simulation. This block must be present and
+  set as super in order for the simulation to work. It requires total simulation time, and a step between two simulation points or the total amount of simulation points to be calculated in the simulation</li>
+  <li> Clock - This block gives an output that can be used as a simulation variable (time). The clock will be the start of a scheme in most cases, and it will usually be connected to the x-axis of the drawing block.</li>
+  <li> Adder - this block simply adds together two values. The input values can also be modified before adding via two extra ports. The input values will be multiplied with the values from those two ports.</li>
+  <li> Inverter - inverter simply negates the value, effectively multiplying the output with -1</li>
+  <li> Integrator - integrates the value it gets. This block works as a numerical integrator, as such, it works well for most simple simulation cases. It is possible to add constant to the integrators first value, by modifying its field "init" (short for initial value).</li>
+  <li> </li>
+  <li> Multiplier - it multiplies the two values in its "in" ports. It is also capable of giving a power of the value to the multiplication, via its two extra ports, similar to the adder.</li>
+  <li> Cosine - this block returns the cosine of the input value.</li>
+  <li> Multiseries Graph drawer - this block produces the output in a graphical form. It needs one output on its x axis and it can take any number of inputs on its y axis.</li>
+</ul>
+</p>
+<p>
+</p>
           </div>
         </div>
       </div>
